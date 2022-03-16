@@ -1,0 +1,58 @@
+id: mercury-fallen
+name: Mercury Fallen
+logoUrl: /static/images/ship/original.png
+coverImage:
+  original: /static/images/cover/original.jpg
+marketingAssets:
+  - url: /static/images/cover/original.jpg
+    type: Image
+    title: cover
+    description: Cover image
+description: |
+  The universe is not what it used to be. Evil forces have managed to
+  take control over half of the known universe's sectors, and is now
+  vying to conquer your sector.
+  
+  It is your job to not let that happen.
+admins:
+  - fllr
+gameplay:
+  rejection: Spectate
+  players:
+    min: 4
+    recommended: 6
+    max: 10
+source:
+  assets: ./game/src/resources/
+  backend:
+    type: Docker
+    dockerfile: ./runner/Dockerfile
+  frontend:
+    type: Unknown
+    pkg: ./client/pkg
+    executable: client
+  sidecar:
+    version: 0.1.0
+fleet:
+  - version: 0.1.0
+    status: public
+achievements:
+  - shortname: first-kill
+    title: First Kill
+    description: First kill in the game!
+    images:
+      achieved: ./static/images/achievements/kill/achieved.png
+      unachieved: ./static/images/achievements/kill/unachieved.png
+rankings:
+  - shortname: kills
+    title: Kills
+    description: # of Kills
+    aggregation: Individual
+    mode: Accumulate
+    best: MaxIsBest
+  - shortname: deaths
+    title: Deaths
+    description: # of Deaths
+    aggregation: Individual
+    mode: Accumulate
+    best: MinIsBest

@@ -1,0 +1,3 @@
+[registries]
+hqg-shared = { index = "https://dl.cloudsmith.io/v8FLKRoN7K8c29gX/hqg/shared/cargo/index.git" }
+

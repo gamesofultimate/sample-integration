@@ -1,0 +1,74 @@
+# You must change these to your own details.
+[package]
+name = "sports"
+description = "My super awesome Rust, WebAssembly, and Webpack project!"
+version = "0.1.0"
+authors = ["You <you@example.com>"]
+categories = ["wasm"]
+readme = "README.md"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[dependencies]
+utils = { path = "../../utils" }
+engine = { path = "../../engine" }
+rsl = { path = "../../rsl" }
+
+fix-hidden-lifetime-bug = "0.2.4"
+uuid = { version = "0.8", features = ["serde", "v4", "wasm-bindgen"] }
+nalgebra = { version = "0.30.0", features = ["serde-serialize", "bytemuck"] }
+async-trait = "0.1.52"
+
+serde = { version = "1.0.124", features = ["derive"] }
+serde_json = "1.0.64"
+
+winit = { version = "^0.26.0" }
+futures = "0.1.27"
+bytemuck = "1.7.3"
+crossbeam = "0.8.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+js-sys = "0.3.45"
+wasm-bindgen = "0.2.78"
+wasm-bindgen-futures = "0.4.28"
+console_error_panic_hook = "0.1.5"
+log = "0.4.6"
+wasm-logger = "0.2.0"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
+version = "0.3.55"
+features = [
+  'Document',
+  'Element',
+
+  'HtmlImageElement',
+  'HtmlCanvasElement',
+  'WebGlBuffer',
+  'WebGlFramebuffer',
+  'WebGlProgram',
+  'WebGlRenderbuffer',
+  'WebGl2RenderingContext',
+  'WebGlShader',
+  'WebGlTexture',
+  'WebGlUniformLocation',
+  'WebGlVertexArrayObject',
+
+#  fetch
+  'Headers',
+  'Request',
+  'RequestInit',
+  'RequestMode',
+  'Response',
+#  fetch
+
+  'Window',
+  'console',
+]

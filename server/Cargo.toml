@@ -1,0 +1,47 @@
+[package]
+name = "runner"
+version = "0.1.0"
+authors = ["Felipe Rocha <felipellrocha@gmail.com>"]
+edition = "2018"
+
+[features]
+with-prod = []
+with-agones = []
+
+[profile.release]
+debug = true
+
+[dependencies]
+game = { path = "../game" }
+server_utils = { version = "0.1.0", registry = "hqg-shared" }
+utils = { path = "../../../utils" }
+engine = { path = "../../../engine" }
+networking = { path = "../../../networking" }
+
+serde = "1.0.117"
+bincode = "1.3.1"
+serde_json = "1.0"
+
+crossbeam = "0.8.1"
+
+dotenv = "0.15.0"
+env_logger = "0.8"
+log = "0.4"
+http = "0.2"
+futures = { version = "0.3.4" }
+hyper = { version = "0.14.7", features=["stream"] }
+tokio = { version = "1.0", features = ["rt-multi-thread", "time", "fs", "macros", "net"] }
+tonic = "0.6.1"
+prost = "0.9"
+regex = "1.4.1"
+
+uuid = { version = "0.8", features = ["serde", "v4"] }
+bytes = "1.1.0"
+
+nalgebra = { version = "0.30.0", features = ["serde-serialize"] }
+specs = { version = "0.16.1", default-features = false, features = ["serde"] }
+
+[build-dependencies]
+prost-build = "0.9.0"
+walkdir = "2.2.7"
+tonic-build = "0.6.0"

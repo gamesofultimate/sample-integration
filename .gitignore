@@ -1,0 +1,7 @@
+dist
+target
+/target
+/pkg
+emscripten/build/
+emscripten/obj/
+emscripten/build/
